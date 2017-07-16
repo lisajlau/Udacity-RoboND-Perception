@@ -75,4 +75,3 @@ pcl.save(extracted_outliers, filename)
 
 # Save pcd for tabletop objects
 
-
