@@ -70,3 +70,60 @@ Clustering where points that are closer to each other are clustered together by 
 
 ![alt text](./images/rviz_euclidean2.png "outliers")
 
+## Object Recognition
+
+### Feature
+There are several ways to identify an object: color, position within the scene, shape, size
+
+#### Color spaces
+Most basic color representation is in RGB. However objects will have different color under a different lighting conditions in this representation (in RGB). Converting data to HSV (hue saturation value), allows it to be less sensative to different light conditions. 
+
+![alt text](./images/hsv.png "hsv")
+
+```
+# Define a function to compute color histogram features  
+def color_hist(img, nbins=32, bins_range=(0, 256)):
+    # Convert from RGB to HSV using cv2.cvtColor()
+    hsv = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+    # Compute the histogram of the HSV channels separately
+    r_hist = np.histogram(hsv[:,:,0], bins=32, range=(0, 256))
+    g_hist = np.histogram(hsv[:,:,1], bins=32, range=(0, 256))
+    b_hist = np.histogram(hsv[:,:,2], bins=32, range=(0, 256))
+    # Concatenate the histograms into a single feature vector
+    hist_features = np.concatenate((r_hist[0], g_hist[0], b_hist[0])).astype(np.float64)
+    # Normalize the result
+    norm_features = hist_features / np.sum(hist_features)
+    # Return the feature vector
+    return norm_features
+```
+
+#### Shape
+Shapes are based on getting the surface normal historgrams
+
+#### Classifications by features using SVM
+Support Vector Machine or "SVM" is just a funny name for a particular supervised machine learning algorithm that allows you to characterize the parameter space of your dataset into discrete classes. 
+
+SVMs work by applying an iterative method to a training dataset, where each item in the training set is characterized by a feature vector and a label. In the image above, each point is characterized by just two features, A and B. The color of each point corresponds to its label, or which class of object it represents in the dataset.
+
+Applying an SVM to this training set allows you to characterize the entire parameter space into discrete classes. The divisions between classes in parameter space are known as "decision boundaries", shown here by the colored polygons overlaid on the data. Having created decision boundaries means that when you're considering a new object for which you have features but no label, you can immediately assign it to a specific class. In other words, once you have trained your SVM, you can use it for the task of object recognition!
+
+
+## Overall steps from recording an image to identifying objects
+
+1. Get input from ROS
+2. ros to pcl
+3. Voxel grid downsampling
+4. PassThrough Filter
+5. RANSAC Plane Segmentation
+6. Extract inliers and outliers
+7. Euclidean Clustering
+8. Create Cluster-Mask Point Cloud to visualize each cluster separately
+9. Classify the clusters! (loop through each detected cluster one at a time)
+10. Grab the points for the cluster
+11. Compute the associated feature vector
+12. Make the prediction
+13. Publish a label into RViz
+14. Add the detected object to the list of detected objects.
+15. Publish results
+
+![alt text](./images/object_recognition.png "object_recognition")
