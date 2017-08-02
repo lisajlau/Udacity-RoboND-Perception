@@ -129,7 +129,7 @@ def pcl_callback(pcl_msg):
     # Publish ROS messages
     pcl_objects_pub.publish(ros_cloud_objects)
     pcl_table_pub.publish(ros_cloud_table)
-    pcl_cluster_pub.publish(ros_cluster)
+    pcl_cluster_pub.publish(ros_cluster_cloud)
     detected_objects_pub.publish(detected_objects)
 
 if __name__ == '__main__':
