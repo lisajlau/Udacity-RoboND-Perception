@@ -127,3 +127,14 @@ Applying an SVM to this training set allows you to characterize the entire param
 15. Publish results
 
 ![alt text](./images/object_recognition.png "object_recognition")
+
+Based on the image above, a few things had to be updated to ensure it is correctly processing the image:
+1. Ensure the cluster passing into the svm prediction algorithm includes the original features and not after euclidean (euclidean colors the blobs to separate)
+2. Tweak bin size, the bin size has to be the same as the trained model, and when used for prediction
+3. Using HSV is important (set to true) to ensure that the color insensitive to lighting. If hsv is used for prediction, same needs to be used for prediction
+4. SVM can be tweaked to improve prediction performance
+
+Doing the above results in:
+
+
+![alt text](./images/final_result.png "object_recognition")
