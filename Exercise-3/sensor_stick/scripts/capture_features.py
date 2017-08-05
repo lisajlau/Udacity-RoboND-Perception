@@ -39,11 +39,7 @@ if __name__ == '__main__':
     for model_name in models:
         spawn_model(model_name)
 
-<<<<<<< HEAD
         for i in range(10):
-=======
-        for i in range(5):
->>>>>>> udacity/master
             # make five attempts to get a valid a point cloud then give up
             sample_was_good = False
             try_count = 0
@@ -59,11 +55,7 @@ if __name__ == '__main__':
                     sample_was_good = True
 
             # Extract histogram features
-<<<<<<< HEAD
             chists = compute_color_histograms(sample_cloud, using_hsv=True)
-=======
-            chists = compute_color_histograms(sample_cloud, using_hsv=False)
->>>>>>> udacity/master
             normals = get_normals(sample_cloud)
             nhists = compute_normal_histograms(normals)
             feature = np.concatenate((chists, nhists))
