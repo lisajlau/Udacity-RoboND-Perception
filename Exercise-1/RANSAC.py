@@ -4,6 +4,7 @@ import pcl
 # Load Point Cloud file
 cloud = pcl.load_XYZRGB('tabletop.pcd')
 
+<<<<<<< HEAD
 # Voxel Grid filter
 # Create a VoxelGrid filter object for our input point cloud
 vox = cloud.make_voxel_grid_filter()
@@ -62,16 +63,36 @@ extracted_inliers = cloud_filtered.extract(inliers, negative=False)
 filename = 'extracted_inliers.pcd'
 pcl.save(extracted_inliers, filename)
 
+=======
+
+# Voxel Grid filter
+
+
+# PassThrough filter
+
+
+# RANSAC plane segmentation
+
+
+# Extract inliers
+>>>>>>> udacity/master
 
 # Save pcd for table
 # pcl.save(cloud, filename)
 
 
 # Extract outliers
+<<<<<<< HEAD
 extracted_outliers = cloud_filtered.extract(inliers, negative=True)
 filename = 'extracted_outliers.pcd'
 pcl.save(extracted_outliers, filename)
+=======
+>>>>>>> udacity/master
 
 
 # Save pcd for tabletop objects
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> udacity/master

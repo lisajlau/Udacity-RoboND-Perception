@@ -16,6 +16,11 @@ def plot_confusion_matrix(cm, classes,
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
     """
+<<<<<<< HEAD
+=======
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+>>>>>>> udacity/master
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
@@ -23,9 +28,12 @@ def plot_confusion_matrix(cm, classes,
     plt.xticks(tick_marks, classes, rotation=45)
     plt.yticks(tick_marks, classes)
 
+<<<<<<< HEAD
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
 
+=======
+>>>>>>> udacity/master
     thresh = cm.max() / 2.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         plt.text(j, i, '{0:.2f}'.format(cm[i, j]),
@@ -63,7 +71,11 @@ encoder = LabelEncoder()
 y_train = encoder.fit_transform(y_train)
 
 # Create classifier
+<<<<<<< HEAD
 clf = svm.SVC(kernel='linear', C=1.0, gamma='auto')
+=======
+clf = svm.SVC(kernel='linear')
+>>>>>>> udacity/master
 
 # Set up 5-fold cross-validation
 kf = cross_validation.KFold(len(X_train),
