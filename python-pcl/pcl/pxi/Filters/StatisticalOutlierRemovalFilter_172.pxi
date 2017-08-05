@@ -8,16 +8,9 @@ cdef class StatisticalOutlierRemovalFilter:
     """
     cdef pclfil.StatisticalOutlierRemoval_t *me
 
-<<<<<<< HEAD
-    def __cinit__(self, PointCloud pc not None):
-        self.me = new pclfil.StatisticalOutlierRemoval_t()
-        (<cpp.PCLBase_t*>self.me).setInputCloud (pc.thisptr_shared)
-
-=======
     def __cinit__(self):
         self.me = new pclfil.StatisticalOutlierRemoval_t()
        
->>>>>>> udacity/master
     def __dealloc__(self):
         del self.me
 
@@ -76,14 +69,8 @@ cdef class StatisticalOutlierRemovalFilter_PointXYZI:
     """
     cdef pclfil.StatisticalOutlierRemoval_PointXYZI_t *me
 
-<<<<<<< HEAD
-    def __cinit__(self, PointCloud_PointXYZI pc not None):
-        self.me = new pclfil.StatisticalOutlierRemoval_PointXYZI_t()
-        (<cpp.PCLBase_PointXYZI_t*>self.me).setInputCloud (pc.thisptr_shared)
-=======
     def __cinit__(self):
         self.me = new pclfil.StatisticalOutlierRemoval_PointXYZI_t()
->>>>>>> udacity/master
 
     def __dealloc__(self):
         del self.me
@@ -143,14 +130,8 @@ cdef class StatisticalOutlierRemovalFilter_PointXYZRGB:
     """
     cdef pclfil.StatisticalOutlierRemoval_PointXYZRGB_t *me
 
-<<<<<<< HEAD
-    def __cinit__(self, PointCloud_PointXYZRGB pc not None):
-        self.me = new pclfil.StatisticalOutlierRemoval_PointXYZRGB_t()
-        (<cpp.PCLBase_PointXYZRGB_t*>self.me).setInputCloud (pc.thisptr_shared)
-=======
     def __cinit__(self):
         self.me = new pclfil.StatisticalOutlierRemoval_PointXYZRGB_t()
->>>>>>> udacity/master
 
     def __dealloc__(self):
         del self.me
@@ -210,14 +191,8 @@ cdef class StatisticalOutlierRemovalFilter_PointXYZRGBA:
     """
     cdef pclfil.StatisticalOutlierRemoval_PointXYZRGBA_t *me
 
-<<<<<<< HEAD
-    def __cinit__(self, PointCloud_PointXYZRGBA pc not None):
-        self.me = new pclfil.StatisticalOutlierRemoval_PointXYZRGBA_t()
-        (<cpp.PCLBase_PointXYZRGBA_t*>self.me).setInputCloud (pc.thisptr_shared)
-=======
     def __cinit__(self):
         self.me = new pclfil.StatisticalOutlierRemoval_PointXYZRGBA_t()
->>>>>>> udacity/master
 
     def __dealloc__(self):
         del self.me
