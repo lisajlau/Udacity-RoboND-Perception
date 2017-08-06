@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 [![Udacity - Robotics NanoDegree Program](https://s3-us-west-1.amazonaws.com/udacity-robotics/Extra+Images/RoboND_flag.png)](https://www.udacity.com/robotics)
 >>>>>>> udacity/master
 # RoboND-Perception-Exercises
@@ -71,7 +70,3 @@ Return: rgb packed as a single float32
 Creates a list of 3-tuple (rgb) with length of the list = cluster_count
 Return: get_color_list.color_list
 ```
-<<<<<<< HEAD
-# Udacity-RoboND-Perception-Project
-=======
->>>>>>> udacity/master
