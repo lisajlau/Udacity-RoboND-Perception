@@ -32,7 +32,7 @@ def compute_color_histograms(cloud, using_hsv=False):
         channel_1_vals.append(color[0])
         channel_2_vals.append(color[1])
         channel_3_vals.append(color[2])
-
+    
 
     r_hist = np.histogram(channel_1_vals, bins=32, range=(0, 256))
     g_hist = np.histogram(channel_2_vals, bins=32, range=(0, 256))
@@ -43,6 +43,7 @@ def compute_color_histograms(cloud, using_hsv=False):
     normed_features = hist_features / np.sum(hist_features)
 
     # Replace normed_features with your feature vector
+    # normed_features = np.random.random(96) 
     return normed_features 
 
 
